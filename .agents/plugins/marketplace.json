@@ -1,0 +1,20 @@
+{
+  "name": "yuanxin-project-management",
+  "interface": {
+    "displayName": "原心项目管理"
+  },
+  "plugins": [
+    {
+      "name": "feishu-project-insights-lite",
+      "source": {
+        "source": "local",
+        "path": "./plugins/feishu-project-insights-lite"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
