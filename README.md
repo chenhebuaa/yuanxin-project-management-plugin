@@ -1,13 +1,13 @@
 # 原心项目管理插件
 
-独立项目仓库与插件市场。版本：`0.1.0-alpha.2`；固定测试标签：`v0.1.0-alpha.2`。连接 `https://projects.yuanxininsight.com/mcp`，无需本机运行服务。
+独立项目仓库与插件市场。版本：`0.1.0-alpha.3`；固定测试标签：`v0.1.0-alpha.3`。连接 `https://projects.yuanxininsight.com/mcp`，无需本机运行服务。
 
 ## 首次安装
 
 在已安装Codex CLI的终端执行：
 
 ```bash
-codex plugin marketplace add chenhebuaa/yuanxin-project-management-plugin --ref v0.1.0-alpha.2
+codex plugin marketplace add chenhebuaa/yuanxin-project-management-plugin --ref v0.1.0-alpha.3
 codex plugin add feishu-project-insights-lite@yuanxin-project-management
 codex mcp login feishu-project-insights-lite
 ```
@@ -38,6 +38,20 @@ codex plugin add zhijian-calendar@yuanxin-insight
 2. “分析幻师COMMUNE的最新进展、客户尚未解决的问题和风险。”核对可读文档来源及读取缺口。
 3. 使用本人确实无权的已配置资料验证权限提示，不应出现正文。若暂无这样的资料，记录为未验收。
 
-群聊参与分析，但回答不罗列消息ID或单列群聊证据。当前不是增量分析，PDF、图片、附件等读取有限，序列结束不代表资料全部覆盖。当前仅完成部署和连接准备，同事本人权限及连续试用仍须实际验收。
+群聊参与分析，但回答不罗列消息ID或单列群聊证据。现支持个人文件元数据变化识别、目录和更新时间筛选、显式选择旧Docx；不保存正文或摘要，不等于跨对话项目记忆。PDF、图片、附件等读取有限，序列结束不代表资料全部覆盖。同事本人权限及连续试用仍须实际验收。
 
 后续更新固定到发布者提供的新标签，重新添加市场并安装Lite；不要移动既有标签。回退也使用已验收的固定标签。安装包只包含Skill和公开连接信息，项目绑定、账号令牌和服务配置均不在此仓库。
+
+## 更新至第一阶段版本
+
+已安装用户执行以下命令，然后新建Codex对话；有效的本人授权可继续使用，无需重复登录。
+
+```bash
+codex plugin marketplace remove yuanxin-project-management
+codex plugin marketplace add chenhebuaa/yuanxin-project-management-plugin --ref v0.1.0-alpha.3
+codex plugin add feishu-project-insights-lite@yuanxin-project-management
+```
+
+示例：“同步幻师项目文件索引，告诉我相对上次完整扫描新增或修改了哪些文件。”首次扫描建立基线；有后续页时须继续，部分失败不会推进基线。未发现不等于删除，未知更新时间不能判断为未变。
+
+示例：“查看幻师微信记录目录中的文件，选出指定日期的记录，结合主文档分析未解决问题。”每日记录日期按实际名称定位，文件更新时间不代表业务发生日期。指定文件含主文档最多20份；更多资料按问题分批选读，未改动但相关的旧文档仍需读取。索引完成不代表正文或分析完成。
